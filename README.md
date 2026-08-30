@@ -222,7 +222,17 @@ Additional projects are documented on my GitHub profile and portfolio as they ar
 
 ### 📈 Contribution Graph
 
+<!--
+  NOTE: The public github-readme-activity-graph.vercel.app demo service
+  is currently down (returns HTTP 402 — the free hosted instance hit its
+  usage limit). This is not an issue with your username or the README.
+  Uncomment the line below once the service is back online, or self-host
+  your own copy — see the troubleshooting notes at the end of this file.
+
 <img src="https://github-readme-activity-graph.vercel.app/graph?username=ramijmaraviya764&theme=react-dark&hide_border=true&bg_color=0d1117&color=00FF41&line=00FF41&point=ffffff" width="100%"/>
+-->
+
+<p><em>Contribution graph temporarily disabled — the free hosting service is down. See troubleshooting notes below.</em></p>
 
 </div>
 
@@ -327,6 +337,23 @@ Additional projects are documented on my GitHub profile and portfolio as they ar
 </div>
 
 <br>
+
+<!-- ============================================================ -->
+<!-- SERVICE STATUS NOTE -->
+<!-- ============================================================ -->
+
+<sub>
+📌 <strong>Known issue (as of the last check):</strong> the Contribution Graph widget above
+depends on the free public instance at <code>github-readme-activity-graph.vercel.app</code>,
+which is currently returning an HTTP 402 error because the maintainer's free hosting tier
+hit its limit. This is outside your control. Two options: (1) wait — these free instances
+are usually restored once the billing cycle resets, then just remove the HTML comment
+around the <code>&lt;img&gt;</code> tag in the Contribution Graph section; or (2) fork
+<a href="https://github.com/Ashutosh00710/github-readme-activity-graph">Ashutosh00710/github-readme-activity-graph</a>
+and deploy your own free copy on Vercel, then point the image URL at your own domain instead.
+</sub>
+
+<br><br>
 
 <!-- ============================================================ -->
 <!-- FOOTER -->
