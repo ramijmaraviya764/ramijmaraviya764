@@ -1,0 +1,73 @@
+<svg viewBox="0 0 800 260" xmlns="http://www.w3.org/2000/svg" font-family="'Courier New', monospace">
+  <style>
+    .term-bg { fill: #0d1117; }
+    .term-border { fill: none; stroke: #00FF41; stroke-opacity: 0.35; stroke-width: 1.5; }
+    .dot { opacity: 0.9; }
+    .line {
+      fill: #00FF41;
+      font-size: 16px;
+      opacity: 0;
+      animation: typeIn 0.4s ease-out forwards;
+    }
+    .ok { fill: #00FF41; font-weight: bold; }
+    .cursor {
+      fill: #00FF41;
+      animation: blink 1s steps(1) infinite;
+    }
+    .scanline {
+      fill: url(#scanGradient);
+      animation: scan 3.2s linear infinite;
+    }
+
+    @keyframes typeIn {
+      to { opacity: 1; }
+    }
+    @keyframes blink {
+      0%, 49% { opacity: 1; }
+      50%, 100% { opacity: 0; }
+    }
+    @keyframes scan {
+      0%   { transform: translateY(0px); }
+      100% { transform: translateY(220px); }
+    }
+
+    .l1 { animation-delay: 0.1s; }
+    .l2 { animation-delay: 0.7s; }
+    .l3 { animation-delay: 1.3s; }
+    .l4 { animation-delay: 1.9s; }
+    .l5 { animation-delay: 2.5s; }
+    .l6 { animation-delay: 3.1s; }
+  </style>
+
+  <defs>
+    <linearGradient id="scanGradient" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#00FF41" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#00FF41" stop-opacity="0.10"/>
+      <stop offset="100%" stop-color="#00FF41" stop-opacity="0"/>
+    </linearGradient>
+    <clipPath id="termClip">
+      <rect x="1" y="1" width="798" height="258" rx="10"/>
+    </clipPath>
+  </defs>
+
+  <rect class="term-bg" x="1" y="1" width="798" height="258" rx="10"/>
+  <rect class="term-border" x="1" y="1" width="798" height="258" rx="10"/>
+
+  <!-- title bar -->
+  <rect x="1" y="1" width="798" height="34" rx="10" fill="#111826"/>
+  <circle class="dot" cx="26" cy="18" r="6" fill="#ff5f56"/>
+  <circle class="dot" cx="46" cy="18" r="6" fill="#ffbd2e"/>
+  <circle class="dot" cx="66" cy="18" r="6" fill="#27c93f"/>
+  <text x="400" y="23" text-anchor="middle" fill="#8b949e" font-size="13">ramij@security:~/scan</text>
+
+  <g clip-path="url(#termClip)">
+    <rect class="scanline" x="0" y="-40" width="800" height="40"/>
+
+    <text class="line l1" x="28" y="72">$ ./run_security_scan.sh --target=profile</text>
+    <text class="line l2" x="28" y="104">&gt; checking open ports ...................... <tspan class="ok">[OK]</tspan></text>
+    <text class="line l3" x="28" y="136">&gt; scanning for known vulnerabilities ........ <tspan class="ok">[OK]</tspan></text>
+    <text class="line l4" x="28" y="168">&gt; verifying firewall rules .................. <tspan class="ok">ACTIVE</tspan></text>
+    <text class="line l5" x="28" y="200">&gt; access level ............................. <tspan class="ok">AUTHORIZED</tspan></text>
+    <text class="line l6" x="28" y="232">$ welcome, ramijmaraviya764_<tspan class="cursor">▌</tspan></text>
+  </g>
+</svg>
