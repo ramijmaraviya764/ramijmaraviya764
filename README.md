@@ -1,25 +1,34 @@
-<div align="center">
+name: Generate Snake Animation
 
-# 🔐 RAMIJ MARAVIYA
+on:
+  schedule:
+    # Runs once a day at 00:00 UTC. Change the cron expression if you want a different frequency.
+    - cron: "0 0 * * *"
+  workflow_dispatch: {}   # Allows manual runs from the Actions tab
+  push:
+    branches:
+      - main             # Regenerates whenever you push to your main branch
 
-### `Cybersecurity Student • Web Developer • Security Enthusiast`
+permissions:
+  contents: write
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=22&duration=2500&pause=800&color=00FF00&center=true&vCenter=true&width=700&lines=Cybersecurity+Student+%F0%9F%94%90;Web+Security+Enthusiast+%F0%9F%9B%A1%EF%B8%8F;Ethical+Hacking+Learner+%F0%9F%92%BB;AI+%2B+Cybersecurity+Explorer+%F0%9F%A4%96;Building+Secure+Applications+%F0%9F%94%A5" alt="Typing SVG" />
+jobs:
+  generate-snake:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Generate contribution snake SVG
+        uses: Platane/snk@v3
+        id: snake-gif
+        with:
+          github_user_name: ramijmaraviya764
+          outputs: |
+            dist/github-contribution-grid-snake.svg
+            dist/github-contribution-grid-snake-dark.svg?palette=github-dark
 
-<br>
-
-[![GitHub](https://img.shields.io/badge/GitHub-Profile-000000?style=for-the-badge&logo=github)](https://github.com/ramijmaraviya764)
-[![Portfolio](https://img.shields.io/badge/Portfolio-Visit-00ff00?style=for-the-badge&logo=googlechrome&logoColor=white)](https://ramijmaraviya764.github.io)
-[![Profile Views](https://komarev.com/ghpvc/?username=ramijmaraviya764&label=PROFILE+VIEWS&color=00ff00&style=for-the-badge)](https://github.com/ramijmaraviya764)
-
-</div>
-
----
-
-## 🛡️ `whoami`
-
-```bash
-┌──(ramij㉿cybersecurity)-[~]
-└─$ whoami
-
-Cybersecurity Student & Web Developer
+      - name: Push generated files to the "output" branch
+        uses: crazy-max/ghaction-github-pages@v4
+        with:
+          target_branch: output
+          build_dir: dist
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
