@@ -1,44 +1,73 @@
-name: Generate Snake Animation
+<svg viewBox="0 0 800 260" xmlns="http://www.w3.org/2000/svg" font-family="'Courier New', monospace">
+  <style>
+    .term-bg { fill: #0d1117; }
+    .term-border { fill: none; stroke: #00FF41; stroke-opacity: 0.35; stroke-width: 1.5; }
+    .dot { opacity: 0.9; }
+    .line {
+      fill: #00FF41;
+      font-size: 16px;
+      opacity: 0;
+      animation: typeIn 0.4s ease-out forwards;
+    }
+    .ok { fill: #00FF41; font-weight: bold; }
+    .cursor {
+      fill: #00FF41;
+      animation: blink 1s steps(1) infinite;
+    }
+    .scanline {
+      fill: url(#scanGradient);
+      animation: scan 3.2s linear infinite;
+    }
 
-on:
-  schedule:
-    # Runs once a day at 00:00 UTC. Change the cron expression if you want a different frequency.
-    - cron: "0 0 * * *"
-  workflow_dispatch: {}   # Allows manual runs from the Actions tab
-  push:
-    branches:
-      - main             # Regenerates whenever you push to your main branch
+    @keyframes typeIn {
+      to { opacity: 1; }
+    }
+    @keyframes blink {
+      0%, 49% { opacity: 1; }
+      50%, 100% { opacity: 0; }
+    }
+    @keyframes scan {
+      0%   { transform: translateY(0px); }
+      100% { transform: translateY(220px); }
+    }
 
-permissions:
-  contents: write
+    .l1 { animation-delay: 0.1s; }
+    .l2 { animation-delay: 0.7s; }
+    .l3 { animation-delay: 1.3s; }
+    .l4 { animation-delay: 1.9s; }
+    .l5 { animation-delay: 2.5s; }
+    .l6 { animation-delay: 3.1s; }
+  </style>
 
-jobs:
-  generate-snake:
-    runs-on: ubuntu-latest
-    timeout-minutes: 5
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+  <defs>
+    <linearGradient id="scanGradient" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#00FF41" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#00FF41" stop-opacity="0.10"/>
+      <stop offset="100%" stop-color="#00FF41" stop-opacity="0"/>
+    </linearGradient>
+    <clipPath id="termClip">
+      <rect x="1" y="1" width="798" height="258" rx="10"/>
+    </clipPath>
+  </defs>
 
-      # NOTE: using the "svg-only" variant of the action, not "Platane/snk@v3".
-      # The full action also tries to render a GIF using headless Chromium,
-      # which commonly fails on GitHub's runners and can fail the whole job
-      # before anything gets pushed. svg-only skips that step entirely.
-      - name: Generate contribution snake SVG
-        uses: Platane/snk/svg-only@v3
-        id: snake-gif
-        with:
-          github_user_name: ramijmaraviya764
-          outputs: |
-            dist/github-contribution-grid-snake.svg
-            dist/github-contribution-grid-snake-dark.svg?palette=github-dark
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  <rect class="term-bg" x="1" y="1" width="798" height="258" rx="10"/>
+  <rect class="term-border" x="1" y="1" width="798" height="258" rx="10"/>
 
-      - name: Push generated files to the "output" branch
-        uses: crazy-max/ghaction-github-pages@v4
-        with:
-          target_branch: output
-          build_dir: dist
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  <!-- title bar -->
+  <rect x="1" y="1" width="798" height="34" rx="10" fill="#111826"/>
+  <circle class="dot" cx="26" cy="18" r="6" fill="#ff5f56"/>
+  <circle class="dot" cx="46" cy="18" r="6" fill="#ffbd2e"/>
+  <circle class="dot" cx="66" cy="18" r="6" fill="#27c93f"/>
+  <text x="400" y="23" text-anchor="middle" fill="#8b949e" font-size="13">ramij@security:~/scan</text>
+
+  <g clip-path="url(#termClip)">
+    <rect class="scanline" x="0" y="-40" width="800" height="40"/>
+
+    <text class="line l1" x="28" y="72">$ ./run_security_scan.sh --target=profile</text>
+    <text class="line l2" x="28" y="104">&gt; checking open ports ...................... <tspan class="ok">[OK]</tspan></text>
+    <text class="line l3" x="28" y="136">&gt; scanning for known vulnerabilities ........ <tspan class="ok">[OK]</tspan></text>
+    <text class="line l4" x="28" y="168">&gt; verifying firewall rules .................. <tspan class="ok">ACTIVE</tspan></text>
+    <text class="line l5" x="28" y="200">&gt; access level ............................. <tspan class="ok">AUTHORIZED</tspan></text>
+    <text class="line l6" x="28" y="232">$ welcome, ramijmaraviya764_<tspan class="cursor">▌</tspan></text>
+  </g>
+</svg>
