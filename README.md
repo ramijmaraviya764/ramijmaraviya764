@@ -241,20 +241,18 @@ Additional projects are documented on my GitHub profile and portfolio as they ar
 <br>
 
 <!-- ============================================================ -->
-<!-- CONTRIBUTION SNAKE -->
+<!-- SECURITY SCAN TERMINAL -->
 <!-- ============================================================ -->
 
-## 🐍 Contribution Snake
+## 🛰️ Live Security Scan
 
 <div align="center">
 
-<!--START_SECTION:snake-->
-<img src="https://raw.githubusercontent.com/ramijmaraviya764/ramijmaraviya764/output/github-contribution-grid-snake-dark.svg" alt="Contribution Snake animation" />
-<!--END_SECTION:snake-->
+<img src="./assets/security-scan.svg" alt="Animated security scan terminal" width="100%" />
 
 </div>
 
-> ⚙️ This animation is generated automatically by the GitHub Actions workflow at `.github/workflows/snake.yml`. It will appear once the workflow has run at least once — see the **Setup Steps** section below.
+> This is a self-contained animated SVG stored at `assets/security-scan.svg` — no GitHub Action, no third-party service, no daily job. It just works the moment the file is in your repo.
 
 <br>
 
