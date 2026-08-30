@@ -248,11 +248,11 @@ Additional projects are documented on my GitHub profile and portfolio as they ar
 
 <div align="center">
 
-<img src="./assets/security-scan.svg" alt="Animated security scan terminal" width="100%" />
+<img src="./profile/security-scan.svg" alt="Animated security scan terminal" width="100%" />
 
 </div>
 
-> This is a self-contained animated SVG stored at `assets/security-scan.svg` — no GitHub Action, no third-party service, no daily job. It just works the moment the file is in your repo.
+> This is a self-contained animated SVG stored at `profile/security-scan.svg` — no GitHub Action, no third-party service, no daily job. It just works the moment the file is in your repo.
 
 <br>
 
