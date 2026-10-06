@@ -33,7 +33,7 @@
 
 [![GitHub](https://img.shields.io/badge/GitHub-ramijmaraviya764-0d1117?style=for-the-badge&logo=github&logoColor=00FF41)](https://github.com/ramijmaraviya764)
 [![Portfolio](https://img.shields.io/badge/Portfolio-Visit-0d1117?style=for-the-badge&logo=firefox&logoColor=00FF41)](REPLACE_PORTFOLIO_URL)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0d1117?style=for-the-badge&logo=linkedin&logoColor=00FF41)](REPLACE_LINKEDIN_URL)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0d1117?style=for-the-badge&logo=linkedin&logoColor=00FF41)](https://www.linkedin.com/in/ramij-maraviya/)
 [![Profile Views](https://komarev.com/ghpvc/?username=ramijmaraviya764&style=for-the-badge&color=0d1117&label=PROFILE+VIEWS)](https://github.com/ramijmaraviya764)
 
 </div>
